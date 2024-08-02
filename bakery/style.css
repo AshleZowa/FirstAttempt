@@ -1,0 +1,27 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/photo-bread.jfif);
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+}
+
+
+.text-center{
+    text-align: center;
+}
+
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative;
+    padding:3% 0;
+}
+
