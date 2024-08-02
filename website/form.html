@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet"  href="style.css">
+    <style>
+        body{
+            font-family:  sans-serif;
+        }
+       
+        form{
+            width:500px;
+            margin:0 auto;
+            margin-top: 50px;
+        }
+
+        input, textarea{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button{
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+     <script>
+        function validate(form)
+        {
+            fail = validateName(form.name.value)
+            fail += validateMessage(form.message.value)
+            fail += validateEmail(form.email.value)
+
+            if (fail == "")  return true
+            else{ alert(fail); return false }
+        }
+
+        
+        function vavalidateName(field)
+        {
+            return (field == "") ? "No name was entered.\n" : ""
+        }
+
+        
+        function validateMessage(field)
+        {
+            return (field == "") ? "No message was entered.\n" : ""
+        }
+
+        function validateEmail(field)
+        {
+            if(field == "") return  "No Email was entered.\n"
+            else if(!((field.indexOf(".") > 0) &&
+                    (field.indexOf("@")> 0)) ||
+                    /[^a-zA-Z0-9.@_-]/.test(field))
+                return "Email address is invalid.\n"
+            return ""
+        }
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">World Of Photography</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="about.html">About </a></li>
+                     <li><a href="service.html">Services</a></li>
+                     <li><a href="contact.html">Contact </a></li>
+                </ul>
+            
+            
+            </div>
+        </div>
+
+        <form method="post"  action="/send-mail.php"  onsubmit="return validate(this)">
+            <input type="text" name="name" placeholder="Your name">
+            <input type="email" name="email" placeholder="Your email">
+            <textarea name="message" placeholder="Your message"></textarea>
+            <button type="submit">Send</button>
+        </form>  
+   </div>
+  
+</body>
+
+</html>
